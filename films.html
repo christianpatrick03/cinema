@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- Barre de navigation -->
+     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Cinema SOSO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="connexion.html">Se connecter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservation.html">Réservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="films.html">Films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+     <!-- Filters Section -->
+     <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-lg-4 col-md-6">
+                <select id="genreFilter" class="form-select" aria-label="Genre">
+                    <option selected value="">Tous les genres</option>
+                    <option value="Action">Action</option>
+                    <option value="Comédie">Comédie</option>
+                    <option value="Drame">Drame</option>
+                    <option value="Horreur">Horreur</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <select id="yearFilter" class="form-select" aria-label="Année de sortie">
+                    <option selected value="">Toutes les années</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <select id="qualityFilter" class="form-select" aria-label="Qualité">
+                    <option selected value="">Toutes les qualités</option>
+                    <option value="4K">4K</option>
+                    <option value="3D">3D</option>
+                    <option value="HD">HD</option>
+                    <option value="SD">SD</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Movies Grid -->
+        <div class="row" id="moviesGrid">
+            <!-- Example Movie Card -->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-genre="Action" data-year="2023" data-quality="4K">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Film 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Film 1</h5>
+                        <p class="card-text">Genre: Action | Année: 2023 | Qualité: 4K</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-genre="Comédie" data-year="2022" data-quality="HD">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Film 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Film 2</h5>
+                        <p class="card-text">Genre: Comédie | Année: 2022 | Qualité: HD</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ajoutez d'autres cartes de films ici -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="assets/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Filters -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const genreFilter = document.getElementById('genreFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const qualityFilter = document.getElementById('qualityFilter');
+            const moviesGrid = document.getElementById('moviesGrid');
+            const movieCards = moviesGrid.getElementsByClassName('col-lg-3');
+
+            function filterMovies() {
+                const genre = genreFilter.value;
+                const year = yearFilter.value;
+                const quality = qualityFilter.value;
+
+                for (let i = 0; i < movieCards.length; i++) {
+                    const movieCard = movieCards[i];
+                    const movieGenre = movieCard.getAttribute('data-genre');
+                    const movieYear = movieCard.getAttribute('data-year');
+                    const movieQuality = movieCard.getAttribute('data-quality');
+
+                    const matchesGenre = !genre || movieGenre === genre;
+                    const matchesYear = !year || movieYear === year;
+                    const matchesQuality = !quality || movieQuality === quality;
+
+                    if (matchesGenre && matchesYear && matchesQuality) {
+                        movieCard.style.display = 'block';
+                    } else {
+                        movieCard.style.display = 'none';
+                    }
+                }
+            }
+
+            genreFilter.addEventListener('change', filterMovies);
+            yearFilter.addEventListener('change', filterMovies);
+            qualityFilter.addEventListener('change', filterMovies);
+        });
+    </script>
+
+<footer class="footer  bg-secondary-subtle ">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Adresse</h5>
+                <p>123 Rue Exemple,<br>75000 Paris, France</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact</h5>
+                <p>Téléphone : +33 1 23 45 67 89<br>Email : contact@example.com</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Horaires</h5>
+                <p>Lundi - Vendredi : 9h - 18h<br>Samedi : 10h - 16h</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+   
+
+
+</body>
+</html>
