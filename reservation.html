@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Cinéma</title>
+    <!-- Lien CSS de Bootstrap -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barre de navigation -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">Cinema SOSO</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="connexion.html">Se connecter</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="reservation.html">Réservation</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Films</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+    <!-- Contenu principal -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Réservation de Séance</h2>
+
+        <!-- Formulaire de réservation -->
+        <form>
+            <!-- Sélection du cinéma -->
+            <div class="mb-3">
+                <label for="cinemaSelect" class="form-label">Choisissez un cinéma :</label>
+                <select class="form-select" id="cinemaSelect">
+                    <option selected>Sélectionnez un cinéma</option>
+                    <option value="1">Cinéma 1</option>
+                    <option value="2">Cinéma 2</option>
+                    <option value="3">Cinéma 3</option>
+                </select>
+            </div>
+
+            <!-- Sélection du film -->
+            <div class="mb-3">
+                <label for="filmSelect" class="form-label">Choisissez un film :</label>
+                <select class="form-select" id="filmSelect">
+                    <option selected>Sélectionnez un film</option>
+                    <option value="1">Film 1</option>
+                    <option value="2">Film 2</option>
+                    <option value="3">Film 3</option>
+                </select>
+            </div>
+
+            <!-- Sélection de la séance -->
+            <div class="mb-3">
+                <label for="seanceSelect" class="form-label">Choisissez une séance :</label>
+                <select class="form-select" id="seanceSelect">
+                    <option selected>Sélectionnez une séance</option>
+                    <option value="1">10:00 - 12:00 (Salle 1, 3D)</option>
+                    <option value="2">13:00 - 15:00 (Salle 2, 4DX)</option>
+                    <option value="3">16:00 - 18:00 (Salle 3, 4K)</option>
+                </select>
+            </div>
+
+            <!-- Sélection du nombre de sièges -->
+            <div class="mb-3">
+                <label for="seatsInput" class="form-label">Nombre de sièges :</label>
+                <input type="number" class="form-control" id="seatsInput" placeholder="Entrez le nombre de sièges"
+                    min="1" max="10">
+            </div>
+
+            <!-- Prix total -->
+            <div class="mb-3">
+                <label class="form-label">Prix total :</label>
+                <p id="totalPrice">€0.00</p>
+            </div>
+
+            <!-- Bouton de réservation -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Réserver</button>
+            </div>
+        </form>
+    </div>
+
+     <footer class="footer bg-secondary-subtle ">
+          <div class="container text-center">
+              <div class="row">
+                  <div class="col-md-4">
+                      <h5>Adresse</h5>
+                      <p>123 Rue Exemple,<br>75000 Paris, France</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Contact</h5>
+                      <p>Téléphone : +33 1 23 45 67 89<br>Email : contact@example.com</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Horaires</h5>
+                      <p>Lundi - Vendredi : 9h - 18h<br>Samedi : 10h - 16h</p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+   
+  
+
+    <!-- Lien JS de Bootstrap -->
+    <script src="assets/bootstrap.bundle.min.js"></script>
+
+    <!-- Script pour calculer le prix total -->
+    <script>
+        const seatPrice = 10; // Exemple de prix par siège
+        document.getElementById('seatsInput').addEventListener('input', function () {
+            const numberOfSeats = this.value;
+            const totalPrice = numberOfSeats * seatPrice;
+            document.getElementById('totalPrice').innerText = `€${totalPrice.toFixed(2)}`;
+        });
+    </script>
+
+</body>
+
+</html>

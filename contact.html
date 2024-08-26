@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-Nous | Cinéma</title>
+    <!-- Lien CSS de Bootstrap -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">Cinema SOSO</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="connexion.html">Se connecter</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="reservation.html">Réservation</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Films</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.html">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+<!-- Contenu principal -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Contactez-Nous</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <!-- Nom de l'utilisateur -->
+                <div class="mb-3">
+                    <label for="userName" class="form-label fw-bold">Nom</label>
+                    <input type="text" class="form-control" id="userName" placeholder="Entrez votre nom">
+                </div>
+
+                <!-- Titre de la demande -->
+                <div class="mb-3">
+                    <label for="requestTitle" class="form-label fw-bold">Titre de la demande</label>
+                    <input type="text" class="form-control" id="requestTitle" placeholder="Entrez le titre de votre demande">
+                </div>
+
+                <!-- Description de la demande -->
+                <div class="mb-3">
+                    <label for="requestDescription" class="form-label fw-bold">Description</label>
+                    <textarea class="form-control" id="requestDescription" rows="5" placeholder="Décrivez votre demande en détail"></textarea>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Pied de page -->
+    <footer class="footer bg-secondary-subtle ">
+          <div class="container text-center">
+              <div class="row">
+                  <div class="col-md-4">
+                      <h5>Adresse</h5>
+                      <p>123 Rue Exemple,<br>75000 Paris, France</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Contact</h5>
+                      <p>Téléphone : +33 1 23 45 67 89<br>Email : contact@example.com</p>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Horaires</h5>
+                      <p>Lundi - Vendredi : 9h - 18h<br>Samedi : 10h - 16h</p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+<!-- Lien JS de Bootstrap -->
+<script src="assets/bootstrap.bundle.min.js"></script>
+</body>
+</html>
